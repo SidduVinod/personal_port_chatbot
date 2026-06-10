@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Build Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .build-container { max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+    .form-row { margin-bottom: 12px; }
+    label { display:block; margin-bottom:6px; font-weight:600; }
+    input, textarea, select { width:100%; padding:8px 10px; border:1px solid #e5e7eb; border-radius:6px; }
+    .result { margin-top:16px; padding:12px; background:#f3f4f6; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <div class="build-container">
+    <h2>Quick Portfolio Builder</h2>
+    <p>Fill in details or upload a resume on the main page. Enter a domain and choose hosting to get a cost estimate.</p>
+
+    <div class="form-row">
+      <label for="name">Full Name</label>
+      <input id="name" placeholder="Your full name">
+    </div>
+    <div class="form-row">
+      <label for="title">Professional Title</label>
+      <input id="title" placeholder="e.g. Full Stack Developer">
+    </div>
+    <div class="form-row">
+      <label for="email">Email</label>
+      <input id="email" placeholder="you@example.com">
+    </div>
+    <div class="form-row">
+      <label for="phone">Phone</label>
+      <input id="phone" placeholder="+1...">
+    </div>
+    <div class="form-row">
+      <label for="bio">Short Bio</label>
+      <textarea id="bio" rows="4" placeholder="A short summary about you"></textarea>
+    </div>
+    <div class="form-row">
+      <label for="skills">Skills (comma separated)</label>
+      <input id="skills" placeholder="Python, JavaScript, React">
+    </div>
+    <div class="form-row">
+      <label for="projects">Projects (one per line: title - description)</label>
+      <textarea id="projects" rows="4" placeholder="E-Commerce Platform - Full-stack app\nAI Chat Assistant - NLP bot"></textarea>
+    </div>
+    <div class="form-row">
+      <label for="domain">Desired Domain Name (optional)</label>
+      <input id="domain" placeholder="example.com">
+    </div>
+    <div class="form-row">
+      <label for="hosting">Hosting Tier</label>
+      <select id="hosting">
+        <option value="basic">Basic — $5/mo</option>
+        <option value="standard" selected>Standard — $15/mo</option>
+        <option value="premium">Premium — $50/mo</option>
+      </select>
+    </div>
+
+    <div style="display:flex;gap:8px;align-items:center;margin-top:12px;">
+      <button id="generateBtn" class="cta-button">Generate Portfolio</button>
+      <a href="index.html" class="cta-button" style="background:#6b7280;color:#fff;text-decoration:none;">Back</a>
+    </div>
+
+    <div id="result" class="result" style="display:none;"></div>
+  </div>
+
+  <script>
+    const API_BASE = 'http://localhost:5000';
+    async function generate() {
+      const payload = {
+        name: document.getElementById('name').value,
+        title: document.getElementById('title').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        bio: document.getElementById('bio').value,
+        skills: (document.getElementById('skills').value || '').split(',').map(s => s.trim()).filter(Boolean),
+        projects: (document.getElementById('projects').value || '').split('\n').map(l => {
+          const parts = l.split(' - ');
+          return { name: parts[0] || '', description: parts[1] || '' };
+        }).filter(p => p.name),
+        domain: document.getElementById('domain').value,
+        hosting_tier: document.getElementById('hosting').value
+      };
+
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('result').textContent = 'Generating...';
+
+      try {
+        const res = await fetch(API_BASE + '/api/generate_portfolio', {
+          method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.url) {
+          document.getElementById('result').innerHTML = `<p>Portfolio created: <a href="${data.url}" target="_blank">Open portfolio</a></p><p>Estimated first-year cost: <strong>$${data.estimate.first_year_total}</strong></p><pre>${JSON.stringify(data.estimate, null, 2)}</pre>`;
+        } else {
+          document.getElementById('result').textContent = 'Failed to generate portfolio';
+        }
+      } catch (e) {
+        document.getElementById('result').textContent = 'Error: ' + e.message;
+      }
+    }
+
+    document.getElementById('generateBtn').addEventListener('click', generate);
+  </script>
+</body>
+</html>
