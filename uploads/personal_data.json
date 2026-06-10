@@ -1,0 +1,138 @@
+{
+  "name": "SIDDARAJU T",
+  "title": "Computer Science Student | Full Stack Developer",
+  "email": "siddunayak604@gmail.com",
+  "phone": "+91 8151042840",
+  "location": "Bengaluru, India",
+  "career_objective": "Final-year student of computer science with specialization in machine learning, computer vision, full-stack development, and mobile app development. Committed to creating scalable solutions for practical issues. Looking for a position in a forward-thinking company where I can use my technical expertise and help with worthwhile projects.",
+  "education": [
+    {
+      "degree": "B.E in Computer Science",
+      "institution": "RV Institute of Technology and Management, Bengaluru",
+      "cgpa": "7.68",
+      "graduation_year": 2026
+    },
+    {
+      "degree": "Diploma in Computer Science",
+      "institution": "JSS Polytechnic, Nanjanagudu",
+      "cgpa": "7.11",
+      "graduation_year": 2023
+    },
+    {
+      "degree": "SSLC",
+      "institution": "Govt. High School, Chikkati",
+      "percentage": "84.64%",
+      "graduation_year": 2019
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Python",
+      "C++",
+      "Java"
+    ],
+    "frameworks": [
+      "React",
+      "Flask"
+    ],
+    "databases": [
+      "MySQL",
+      "MongoDB",
+      "PostgreSQL"
+    ],
+    "tools": [
+      "Git",
+      "Automation Testing",
+      "NLP",
+      "AR Integration"
+    ]
+  },
+  "projects": [
+    {
+      "name": "CSE Chatbot",
+      "year": 2024,
+      "description": "Developed a chatbot for CSE department to answer student queries and provide quick information.",
+      "role": "Implemented NLP-based logic, integrated backend using Flask, and designed a simple UI.",
+      "technologies": [
+        "Python",
+        "Flask",
+        "NLP"
+      ],
+      "outcome": "Automated FAQ responses and improved chatbot interaction."
+    },
+    {
+      "name": "Library Management System",
+      "year": 2024,
+      "description": "Built a system to handle book issuance, returns, fine calculation, and student records.",
+      "role": "Designed database schema, implemented core functions, and developed Java-based UI.",
+      "technologies": [
+        "Java",
+        "MySQL",
+        "MongoDB"
+      ],
+      "outcome": "Streamlined library operations and CRUD functionality."
+    },
+    {
+      "name": "Indoor Navigation Application",
+      "year": "2025 - Ongoing",
+      "description": "Cross-platform indoor navigation app with 3D floor plans, multilingual voice guidance, and AR support.",
+      "role": "Developing mobile frontend using React Native and backend APIs using Node.js.",
+      "technologies": [
+        "React Native",
+        "Node.js",
+        "PostgreSQL",
+        "AR"
+      ],
+      "outcome": "Real-time indoor navigation with multilingual support."
+    },
+    {
+      "name": "License Dashboard Automation Tool",
+      "description": "Developed a dashboard tool to monitor and validate software license details efficiently.",
+      "role": "Created Python automation scripts for validation, duplicate detection, and reporting.",
+      "technologies": [
+        "Python",
+        "HTML",
+        "CSS",
+        "Flask",
+        "JavaScript"
+      ],
+      "outcome": "Improved efficiency of testing and validation processes."
+    }
+  ],
+  "internship": {
+    "company": "Safran Engineering Services India Private Limited",
+    "duration": "6 Months",
+    "domain": "Automation Testing and Python Tool Development",
+    "description": "Worked on real-time testing and validation projects using Python automation.",
+    "responsibilities": [
+      "Developed automation testing tools",
+      "Built license dashboard systems",
+      "Created duplicate variable detection tools",
+      "Implemented checklist verification tools",
+      "Worked on string matching utilities"
+    ],
+    "learning_outcomes": [
+      "Automation testing",
+      "Debugging",
+      "Software testing workflows",
+      "Industry-level project exposure"
+    ]
+  },
+  "certifications": [
+    "Software Engineering & Agile - Infosys Springboard",
+    "Python Programming - Infosys Springboard",
+    "Networking - Cisco",
+    "Java Programming - Great Learning"
+  ],
+  "achievements": [
+    "NCC Best Drill Award (Gold Medal)",
+    "Best SharpShooter - 1st Prize (2022)"
+  ],
+  "languages_known": [
+    "Kannada",
+    "English"
+  ],
+  "social_links": {
+    "github": "https://github.com/SidduVinod"
+  }
+}
